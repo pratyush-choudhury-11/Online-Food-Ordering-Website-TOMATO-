@@ -1,11 +1,22 @@
+
 import mongoose from "mongoose";
 
-const  connectDB = async () =>{
+const connectDB = async () => {
+  const mongoUrl = process.env.MONGO_URL;
 
-    await mongoose.connect('mongodb+srv://subhajit:Fq8yZiIPeqA20qV3@cluster0.hvsbm.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0').then(()=>console.log("DB Connected"));
-   
-}
+  if (!mongoUrl) {
+    throw new Error(
+      "MONGO_URL is missing from Render environment variables."
+    );
+  }
+
+  try {
+    await mongoose.connect(mongoUrl);
+    console.log("DB Connected");
+  } catch (error) {
+    console.error("MongoDB connection failed:", error.message);
+    throw error;
+  }
+};
 
 export default connectDB;
-// add your mongoDB connection string above.
-// Do not use '@' symbol in your databse user's password else it will show an error.
