@@ -8,7 +8,7 @@ TOMATO is a full-stack MERN (MongoDB, Express, React, Node.js) food ordering pla
 🌐 2. Live Demo Links
 🛒 User Panel
 
-🔗 https://food-delivery-frontend-s2l9.onrender.com/
+🔗 https://online-food-ordering-website-tomato.onrender.com/
 
 🛠️ Admin Panel
 
